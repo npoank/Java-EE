@@ -12,4 +12,13 @@
         <servlet-name>FirstServlet</servlet-name>
         <url-pattern>/hello-world</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>FirstJSP</servlet-name>
+        <jsp-file>/FirstJSP.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FirstJSP</servlet-name>
+        <url-pattern>/hello-jsp</url-pattern>
+    </servlet-mapping>
 </web-app>

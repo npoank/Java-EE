@@ -16,7 +16,7 @@
     <p>
         <%
             for (int i = 0; i < 10; i++) {
-                out.println("Hello: " + i);
+                out.println("<p>" + "Hello: " + i + "</p>");
             }
         %>
     </p>
