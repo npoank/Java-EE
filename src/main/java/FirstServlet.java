@@ -16,7 +16,10 @@ public class FirstServlet extends HttpServlet {
         pw.println("</html>");
 
         //response.sendRedirect("https://www.google.com");
-        response.sendRedirect("/testJSP.jsp");
+        //response.sendRedirect("/testJSP.jsp");
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/testJSP.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     @Override
