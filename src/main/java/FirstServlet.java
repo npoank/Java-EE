@@ -13,7 +13,7 @@ public class FirstServlet extends HttpServlet {
 
         String user = (String) session.getAttribute("current_user");
 
-        if (user == null){
+        if (user == null) {
             // response for anonymous user
             // ... authorization anonymous user
             // ... registration anonymous user
@@ -21,6 +21,7 @@ public class FirstServlet extends HttpServlet {
         } else {
             // response for authorized user
         }
+    }
 
 //        Cart cart = (Cart) session.getAttribute("cart");
 //
