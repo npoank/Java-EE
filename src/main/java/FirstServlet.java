@@ -11,21 +11,32 @@ public class FirstServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        Cart cart = (Cart) session.getAttribute("cart");
+        String user = (String) session.getAttribute("current_user");
 
-        String name = request.getParameter("name");
-        int amount = Integer.parseInt(request.getParameter("amount"));
-
-        if (cart == null) {
-            cart = new Cart();
-            cart.setAmount(amount);
-            cart.setName(name);
+        if (user == null){
+            // response for anonymous user
+            // ... authorization anonymous user
+            // ... registration anonymous user
+            // session.setAttribute("current_user", ID
+        } else {
+            // response for authorized user
         }
 
-        session.setAttribute("cart", cart);
-
-        getServletContext().getRequestDispatcher("/showCart.jsp").forward(request, response);
-    }
+//        Cart cart = (Cart) session.getAttribute("cart");
+//
+//        String name = request.getParameter("name");
+//        int amount = Integer.parseInt(request.getParameter("amount"));
+//
+//        if (cart == null) {
+//            cart = new Cart();
+//            cart.setAmount(amount);
+//            cart.setName(name);
+//        }
+//
+//        session.setAttribute("cart", cart);
+//
+//        getServletContext().getRequestDispatcher("/showCart.jsp").forward(request, response);
+//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
