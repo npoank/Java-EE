@@ -14,6 +14,9 @@ public class FirstServlet extends HttpServlet {
         pw.println("<html>");
         pw.println("<h1> Hello " + name + " " + surname + "</h1>");
         pw.println("</html>");
+
+        //response.sendRedirect("https://www.google.com");
+        response.sendRedirect("/testJSP.jsp");
     }
 
     @Override
