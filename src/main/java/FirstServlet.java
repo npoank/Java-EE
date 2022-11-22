@@ -7,19 +7,21 @@ import java.io.PrintWriter;
 public class FirstServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
+        HttpSession session = request.getSession();
+
+        Integer count = (Integer) session.getAttribute("count");
+
+        if (count == null) {
+            session.setAttribute("count", 1);
+            count = 1;
+        } else {
+            session.setAttribute("count", count + 1);
+        }
 
         PrintWriter pw = response.getWriter();
         pw.println("<html>");
-        pw.println("<h1> Hello " + name + " " + surname + "</h1>");
+        pw.println("<h1> Your count is " + count + " </h1>");
         pw.println("</html>");
-
-        //response.sendRedirect("https://www.google.com");
-        //response.sendRedirect("/testJSP.jsp");
-
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/testJSP.jsp");
-        requestDispatcher.forward(request, response);
     }
 
     @Override
