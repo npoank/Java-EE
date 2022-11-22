@@ -14,10 +14,11 @@
     <h1>Testing JSP</h1>
 
     <p>
-        <% java.util.Date now = new java.util.Date();
-        String someString = "Current time " + now;
+        <%
+            for (int i = 0; i < 10; i++) {
+                out.println("Hello: " + i);
+            }
         %>
-    <%= someString%>
     </p>
 
 
