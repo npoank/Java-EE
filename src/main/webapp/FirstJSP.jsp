@@ -14,11 +14,19 @@
     <h1>Testing JSP</h1>
 
     <p>
+        <%@page import="java.util.Date, logic.Test" %>
         <%
-            for (int i = 0; i < 10; i++) {
-                out.println("<p>" + "Hello: " + i + "</p>");
-            }
+            Test test = new Test();
         %>
+
+        <%=
+        new Date()
+        %>
+
+        <%=
+        test.getInf()
+        %>
+
     </p>
 
 
