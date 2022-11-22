@@ -14,19 +14,13 @@
     <h1>Testing JSP</h1>
 
     <p>
-        <%@page import="java.util.Date, logic.Test" %>
         <%
-            Test test = new Test();
+            String name = request.getParameter("name");
+            String surName = request.getParameter("surname");
         %>
-
         <%=
-        new Date()
+            "Hello " + name + " " + surName
         %>
-
-        <%=
-        test.getInf()
-        %>
-
     </p>
 
 
