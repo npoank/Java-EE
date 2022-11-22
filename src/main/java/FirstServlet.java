@@ -1,3 +1,5 @@
+import logic.Cart;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -9,19 +11,20 @@ public class FirstServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        Integer count = (Integer) session.getAttribute("count");
+        Cart cart = (Cart) session.getAttribute("cart");
 
-        if (count == null) {
-            session.setAttribute("count", 1);
-            count = 1;
-        } else {
-            session.setAttribute("count", count + 1);
+        String name = request.getParameter("name");
+        int amount = Integer.parseInt(request.getParameter("amount"));
+
+        if (cart == null) {
+            cart = new Cart();
+            cart.setAmount(amount);
+            cart.setName(name);
         }
 
-        PrintWriter pw = response.getWriter();
-        pw.println("<html>");
-        pw.println("<h1> Your count is " + count + " </h1>");
-        pw.println("</html>");
+        session.setAttribute("cart", cart);
+
+        getServletContext().getRequestDispatcher("/showCart.jsp").forward(request, response);
     }
 
     @Override
